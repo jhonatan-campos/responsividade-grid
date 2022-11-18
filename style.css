@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-title: 'Staatliches', cursive;
+    --ff-body: 'Palanquin', sans-serif;
+
+    --ff-wide-p: 'Roboto', sans-serif;
+    --ff-wide-footer:'Open Sans', sans-serif;
+
+    --fc-white: #FFFFFF;
+    --fc-gray-blue: #4A4E69;
+
+
+
+    --fs-body: 1.6rem;
+
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    background-color: #EFF1FF;
+}
+
+.page {
+    max-width: clamp(33rem, 55rem + 60vw, 90rem);;
+    margin: 0 auto;
+}
+
+
+
+header {
+    text-align: center;
+    background-color: #8E9AAF;
+    padding-top: 3.2rem;
+    padding-bottom: 3rem;
+
+}
+
+header #logo {
+    animation: topdown 350ms .3s backwards;
+    transition: transform .1s;
+}
+
+header #logo:hover {
+    transform: scale(1.1);
+}
+
+header div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #CBC0D3;
+    height: 5.0rem;
+
+    animation: leftright 350ms .3s backwards;
+}
+
+header h1 {
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 3.4rem;
+    letter-spacing: 0.05em;
+
+    color: var(--fc-white);
+
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+header p {
+    display: none;
+    width: 40.5rem;
+    height: 26.2rem;
+
+    padding: 3.2rem 4.8rem 12.5rem;
+
+    color: var(--fc-white);
+    font-family: var(--ff-wide-p);
+    line-height: 2.5rem;
+}
+
+
+h1 {
+    font-family: var(--ff-title);
+}
+
+main {
+    text-align: center;
+    display: grid;
+
+    padding: 1.4rem 3.2rem 6.0rem;
+
+    animation: leftright 350ms .3s backwards;
+}
+
+main p {
+    margin-bottom: 6.3rem;
+    font-size: 2.0rem;
+    line-height: 2.5rem;
+}
+
+.card {
+    position: relative;
+}
+
+.card:nth-child(3), .card:nth-child(7) {
+    display: none;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4.0rem;
+
+    object-fit: cover;
+    margin-bottom: 3.6rem;
+
+    transition: all .1s;
+
+    filter: brightness(0.9);
+}
+
+.card img:hover {
+    transform: scale(1.01);
+    opacity: 0.8;
+}
+
+.card .h2box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 3.2rem;
+    right: 5.2rem;
+
+    width: 15.0rem;
+    height: 4.0rem;
+    background: #FEEAFA;
+    border-radius: 2.0rem;
+
+    animation: topdown 350ms .5s backwards;
+}
+
+.card h2 {  
+    font-family: var(--ff-title);
+    
+    font-weight: 400;
+    line-height: 3.4rem;
+
+    letter-spacing: 0.05em;
+
+    color: var(--fc-gray-blue);
+}
+
+footer {
+    display: none;
+
+    text-align: center;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    display: block;
+
+    font-family: var(--ff-wide-footer);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    color: var(--fc-gray-blue);
+
+}
+
+footer span {
+    font-weight: bold;
+}
+
+@keyframes leftright {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes topdown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 1200px) {
+    .page {
+        display: flex;
+        margin: 0;
+    }
+
+    main p {
+        display: none;
+    }
+
+    header p {
+        display: block;
+    }
+    
+    main {
+        width: clamp(20rem, 43rem + 40vw, 90rem);
+
+        grid-template-areas: "A B A2"
+        "D B D2"
+        "D C D2";
+
+        gap: 2.5rem;
+        padding: 6.4rem 8rem 0rem;
+    }
+    
+    main .card:nth-child(2) {
+        grid-area: A;
+    }
+
+    main .card:nth-child(3) {
+        grid-area: A2;
+        display: block;
+    }
+    
+    main div:nth-child(4) {
+        grid-area: B;
+    }
+    
+    main .card:nth-child(5) {
+        grid-area: C;
+    }
+
+    main .card:nth-child(6) {
+        grid-area: D;
+    }
+
+    main .card:nth-child(7) {
+        display: block;
+        grid-area: D2;
+        
+    }
+
+    .card img {
+        width: 22rem;
+        margin-bottom: 0;
+    }
+
+    .card .h2box {
+        display: none;
+    }
+
+    footer {
+        display: block;
+    }
+}
